@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<title>Алгоритмы шифрования</title>
+</head>
+<body>
+	<form class="cd-form floating-labels">
+		<fieldset>
+			<legend>Алгоритмы шифрования</legend>
+			<div>
+				<h4>Алгоритм</h4>
+				<p class="cd-select">
+					<select id="shifr">
+						<option value="0">RSA</option>
+						<option value="1">Эль-Гамаля</option>
+						<option value="2">AES</option>
+						<option value="3">ГОСТ 28147-89</option>
+					</select>
+				</p>
+			</div>
+			<div>
+				<ul class="cd-form-list">
+					<li>
+						<input type="radio" name="radio-button" id="cd-radio-1" checked>
+						<label id="l-cd-radio-1" for="cd-radio-1">Зашифровать</label>
+					</li>
+					<li>
+						<input type="radio" name="radio-button" id="cd-radio-2">
+						<label id="l-cd-radio-2" for="cd-radio-2">Расшифровать</label>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<ul class="cd-form-list">
+					<li>
+						<h4>Публичный ключ</h4>
+						<input maxlength="32" type="text" class="keys" name="pubKey" id="pub-key">
+					</li>
+					<li>
+						<h4>Приватный ключ</h4>
+						<input type="text" class="keys" name="privKey" id="priv-key">
+					</li>
+				</ul>
+			</div>
+			<div class="error-message hide">
+				<p>Пожалуйста введите текст</p>
+			</div>
+			<div class="icon">
+				<label class="cd-label" for="cd-textarea">Введите исходный текст</label>
+				<textarea class="message" name="cd-textarea" id="cd-textarea-1"></textarea>
+			</div>
+			<div class="icon">
+				<label class="cd-label" for="cd-textarea">Введите зашифрованный текст</label>
+				<textarea class="message" name="cd-textarea" disabled id="cd-textarea-2"></textarea>
+			</div>
+			<div>
+				<input id="btn" type="submit" value="Выполнить">
+			</div>
+		</fieldset>
+	</form>
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/GOST.js"></script>
+	<script type="text/javascript" src="js/aes/ext.js"></script>
+	<script type="text/javascript" src="js/aes/md5.js"></script>
+	<script type="text/javascript" src="js/aes/bits.js"></script>
+	<script type="text/javascript" src="js/ElGamal.js"></script>
+	<script src="js/rsa.js"></script>
+	<script type="text/javascript" src="js/aes/gf28.js"></script>
+	<script type="text/javascript" src="js/aes/aes.js"></script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+	<script src="js/cripto.js"></script>
+</body>
+</html>
