@@ -1,25 +1,3 @@
-/** Класс осуществляющий работу с шифром ГОСТ 28147-89 (шифрование/дешифрованние данных)
- * @see http://intsystem.org/19/gost-28147-89-php/ (thanks InSys)
- *
- * Переведено на язык javascript
- * Craager (с) 2014
-
-
-Пример использования:
-<script src="GOST.js" type="text/javascript"></script>
-
-<script>
-var gost = new ClassGost(),
-	data = "Inner text",
-	key = "lkmsdofijw9uri4oikpw934385u4owe2",
-	data_encoded = gost.Encode(data, key),
-	data_decoded = gost.Decode(data_encoded, key);
-</script>
-
-
- *
- */
-
 function ClassGost() {
 	/** Количесто иттераций основного шага криптообразования
 	 */
@@ -141,10 +119,7 @@ function ClassGost() {
 			var new_key = [];
 
 			for(var i = 0; i < 32; i += 4){
-				//$tmp=(int)hexdec(bin2hex(substr($key, ($i*4), 4)));
-
 				var tmp = parseInt(bin2hex(key.substr(i, 4)), 16);
-
 				new_key.push(tmp);
 			}
 
@@ -483,19 +458,7 @@ function ClassGost() {
 	}
 }
 
-
-/* АНАЛОГИ PHP ФУНКЦИЙ */
 function bin2hex(s) {
-  //  discuss at: http://phpjs.org/functions/bin2hex/
-  // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // bugfixed by: Onno Marsman
-  // bugfixed by: Linuxworld
-  // improved by: ntoniazzi (http://phpjs.org/functions/bin2hex:361#comment_177616)
-  //   example 1: bin2hex('Kev');
-  //   returns 1: '4b6576'
-  //   example 2: bin2hex(String.fromCharCode(0x00));
-  //   returns 2: '00'
-
   var i, l, o = '', n;
 
   s += '';
@@ -509,27 +472,6 @@ function bin2hex(s) {
 }
 
 function sprintf() {
-  //  discuss at: http://phpjs.org/functions/sprintf/
-  // original by: Ash Searle (http://hexmen.com/blog/)
-  // improved by: Michael White (http://getsprink.com)
-  // improved by: Jack
-  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // improved by: Dj
-  // improved by: Allidylls
-  //    input by: Paulo Freitas
-  //    input by: Brett Zamir (http://brett-zamir.me)
-  //   example 1: sprintf("%01.2f", 123.1);
-  //   returns 1: 123.10
-  //   example 2: sprintf("[%10s]", 'monkey');
-  //   returns 2: '[    monkey]'
-  //   example 3: sprintf("[%'#10s]", 'monkey');
-  //   returns 3: '[####monkey]'
-  //   example 4: sprintf("%d", 123456789012345);
-  //   returns 4: '123456789012345'
-  //   example 5: sprintf('%-03s', 'E');
-  //   returns 5: 'E00'
 
   var regex = /%%|%(\d+\$)?([-+\'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
   var a = arguments;
